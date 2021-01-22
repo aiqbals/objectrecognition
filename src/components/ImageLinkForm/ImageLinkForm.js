@@ -7,6 +7,14 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
         <div className=''>
             <div className='f3'>
                 <p className='gold'>{'Detect you pictuer with this Magic Brain Tools'}</p>
+                <select id="types" class="w-20 center db h2 f5 bg-near-white  b--sliver" name="">
+                    <option value="">Select Type </option>
+                    <option label="FaceDetect" value="2">FaceDetect
+                    </option>
+                    <option label="ColorDetect" value="12">ColorDetect
+                    </option>               
+                </select>
+
                 <div className='center'>
                     <div className='form center pa4 br3 shadow-5'>
                         <input 
