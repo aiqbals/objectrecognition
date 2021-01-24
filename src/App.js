@@ -19,10 +19,59 @@ const app = new Clarifai.App({
 const particleOptions = {
   particles: {
     number: {
-      value: 130,
+      value: 280,
       desitiy: {
         enable: true,
         value_area: 800
+      }
+    },
+    shape: {
+      type: "circle",
+      stroke: {
+        width: 0,
+        color: "#e6ac00"
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#e6ac00",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 4,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      }
+    },
+    "modes": {
+      "grab": {
+        "distance": 180,
+        "line_linked": {
+          "opacity": 1.5
+        }
       }
     }
   }
