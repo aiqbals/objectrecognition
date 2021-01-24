@@ -75,7 +75,7 @@ const particleOptions = {
       }
     }
   }
-}
+};
 class App extends Component {
   state = {
     input: '',
@@ -148,7 +148,11 @@ class App extends Component {
             />
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div> : ( route === 'signin' ? 
-                      <Signin onRouteChange={this.onRouteChange} /> :
+                      <div>
+                          <Logo />
+                          <Signin onRouteChange={this.onRouteChange} />
+                          )
+                      </div> :
                       <Register onRouteChange={this.onRouteChange} />         
                   )
         } {/* manual routing reason, we use this bracket - way of declaring JS in JSX */}
