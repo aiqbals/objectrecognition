@@ -160,7 +160,7 @@ class App extends Component {
     //app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
     //aii call from bacend for security reason
     //fetch('http://localhost:3003/image' // - while using local server
-    fetch('https://git.heroku.com/arcane-taiga-52294.com/imageurl', {
+    fetch('https://arcane-taiga-52294.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
