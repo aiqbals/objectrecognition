@@ -2,17 +2,20 @@ import React from 'react';
 import './Imagelinkform.css';
 
 
-const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
+const ImageLinkForm = ({ onInputChange, onButtonSubmit, onSelect, errhint }) => {
     return(
         <div className=''>
             <div className='f3'>
-                <p className='gold'>{'Detect you pictuer with this Magic Brain Tools'}</p>
-                <select id="types" className="w-30 center db h2 f5 bg-near-white  b--sliver" name="">
-                    <option value="">Select Type </option>
-                    <option label="FaceDetect" value="2">FaceDetect
-                    </option>
-                    <option label="ColorDetect" value="12">ColorDetect
-                    </option>               
+                <p className='white b'>{'Detect you pictuer with this Magic Brain Tools'}</p>
+                <select 
+                    id="detecttypes" 
+                    className="w-35 center db h2 f5 bg-near-white  b--sliver" 
+                    name="" onChange={onSelect}>    
+                        <option value="">Select Type </option>
+                        <option label="" value="face">FaceDetect</option>
+                        <option label="" value="color">ColorDetect</option> 
+                        <option label="" value="travel">TravelDetect</option>
+                        <option label="" value="food">FoodDetect</option>              
                 </select>
 
                 <div className='center'>
@@ -25,6 +28,10 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
                             onClick={onButtonSubmit}> Detect </button>
                     </div>
                 </div>
+                <p 
+                    id='errhint' 
+                    className="red b bg-near-white w-50 center"> {errhint} 
+                </p> 
             </div>
         </div>
     )

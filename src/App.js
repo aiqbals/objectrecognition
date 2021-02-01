@@ -99,6 +99,8 @@ class App extends Component {
     box: {},
     route: 'signin',
     isSignedIn: false,
+    detect: '',
+    msg: '',
     user: {
       id: '',
       name: '',
@@ -153,14 +155,19 @@ class App extends Component {
     this.setState({input: event.target.value})
   }
 
+  detectTyp = (event) => {
+    this.setState({detect: event.target.value});
+  }
+
   onButtonSubmit = () => {
-    //console.log('click');
+    if(this.state.detect === 'face' && this.state.input) {
+    this.setState({msg: ''})
     this.setState({imageUrl: this.state.input})
     //COLOR_MODEL, FACE_DETECT_MODEL - WE CAN USE MANY MODELS LIKE THIS
     //app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-    //aii call from bacend for security reason
+    //api call from bacend for security reason
     //fetch('http://localhost:3003/image' // - while using local server
-    fetch('https://git.heroku.com/arcane-taiga-52294.com/imageurl', {
+    fetch('https://arcane-taiga-52294.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -187,7 +194,10 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(response))
       })       
       .catch( err => console.log(err))
+  } else { 
+      this.setState({msg: 'Err! Please select FaceDetect and put image url'})
   }
+} 
 
   onRouteChange = (route) => {
     this.setState({route: route});
@@ -198,6 +208,7 @@ class App extends Component {
       this.setState({isSignedIn: true})
     }
   }
+
 
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
@@ -217,6 +228,8 @@ class App extends Component {
             <ImageLinkForm 
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit} 
+              onSelect = {this.detectTyp}
+              errhint = {this.state.msg}
             />
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div> : ( route === 'signin' ? 
