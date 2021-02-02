@@ -10,7 +10,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit, onSelect, errhint }) => 
                 <select 
                     id="detecttypes" 
                     className="w-35 center db h2 f5 bg-near-white  b--sliver" 
-                    name="" onChange={onSelect}>    
+                    name="" onChange={onSelect} >    
                         <option value="">Select Type </option>
                         <option label="" value="face">FaceDetect</option>
                         <option label="" value="color">ColorDetect</option> 

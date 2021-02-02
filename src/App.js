@@ -196,6 +196,7 @@ class App extends Component {
       .catch( err => console.log(err))
   } else { 
       this.setState({msg: 'Err! Please select FaceDetect and put image url'})
+      this.setState({imageUrl: ''})
   }
 } 
 
