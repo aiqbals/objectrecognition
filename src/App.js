@@ -239,7 +239,6 @@ class App extends Component {
                           <Signin 
                             onRouteChange={this.onRouteChange}
                             updateUser={this.updateUser} />
-                          )
                       </div> :
                        <div>
                           <Logo />
